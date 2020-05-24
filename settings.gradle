@@ -1,0 +1,2 @@
+rootProject.name='My ApplicationInternet'
+include ':app'
