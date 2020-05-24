@@ -2,6 +2,7 @@ package com.example.myapplicationinternet;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.myapplicationinternet.R;
 import com.example.myapplicationinternet.interfaces.CallbackRetrofit;
@@ -15,10 +16,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivityRetrofitGithub extends AppCompatActivity implements CallbackRetrofit {
 
+    TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textView = findViewById(R.id.hello);
         GithubCall.fetchUser(this, "JakeWharton");
     }
 
@@ -27,6 +31,8 @@ public class MainActivityRetrofitGithub extends AppCompatActivity implements Cal
 
         Log.d("tag","login = " +githubUserList.get(1).getId());
     }
+
+
 
     @Override
     public void onFailure() {
